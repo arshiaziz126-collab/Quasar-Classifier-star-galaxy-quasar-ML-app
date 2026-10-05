@@ -6,7 +6,9 @@ colorTo: red
 sdk: docker
 app_port: 8000
 pinned: false
----# Quasar Classifier
+
+---
+# Quasar Classifier
 
 **Is it a star, a galaxy, or a quasar?** A machine learning app that classifies objects from the Sloan Digital Sky Survey (SDSS DR17) using their brightness in five colour filters and their redshift, and explains every answer with SHAP.
 
