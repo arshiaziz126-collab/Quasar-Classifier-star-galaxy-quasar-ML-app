@@ -1,3 +1,8 @@
+import { localMeta, localPredict, localPredictCsv, localRandom } from './model'
+
+// VITE_MODE=static (set on Vercel): the model runs in the browser, no server needed.
+// Otherwise the site talks to the FastAPI backend.
+const STATIC = import.meta.env.VITE_MODE === 'static'
 const BASE = (import.meta.env.VITE_API_URL || '').replace(/\/$/, '')
 
 async function call(path, options) {
@@ -19,11 +24,12 @@ async function call(path, options) {
   return res.json()
 }
 
-export const getMeta = () => call('/api/meta')
-export const getRandom = () => call('/api/random')
-export const predict = (values) =>
-  call('/api/predict', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(values) })
+export const getMeta = () => (STATIC ? localMeta() : call('/api/meta'))
+export const getRandom = () => (STATIC ? localRandom() : call('/api/random'))
+export const predict = (values) => (STATIC ? localPredict(values) :
+  call('/api/predict', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(values) }))
 export const predictCsv = (file) => {
+  if (STATIC) return localPredictCsv(file)
   const fd = new FormData()
   fd.append('file', file)
   return call('/api/predict-csv', { method: 'POST', body: fd })

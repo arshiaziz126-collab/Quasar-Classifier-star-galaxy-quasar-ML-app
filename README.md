@@ -1,13 +1,3 @@
----
-title: Quasar Classifier
-emoji: 🌌
-colorFrom: yellow
-colorTo: red
-sdk: docker
-app_port: 8000
-pinned: false
-
----
 # Quasar Classifier
 
 **Is it a star, a galaxy, or a quasar?** A machine learning app that classifies objects from the Sloan Digital Sky Survey (SDSS DR17) using their brightness in five colour filters and their redshift, and explains every answer with SHAP.
@@ -62,6 +52,24 @@ npm run dev                          # http://localhost:5173
 5. Restart the app. The "synthetic demo data" notices disappear and every number on the site is now real.
 
 ---
+
+## Deploy on Vercel (recommended: never sleeps)
+
+The whole model also runs inside the browser, so the site can be hosted as static files with no server.
+
+1. Train the model, then export it for the browser:
+   ```
+   python -m ml.train
+   python -m ml.export_web
+   ```
+   This writes `frontend/public/model/` (about 1 MB). Commit it.
+2. Push to GitHub.
+3. On https://vercel.com choose **Add New > Project** and import the repo.
+4. Set **Root Directory** to `frontend`. Vercel detects Vite.
+5. Under **Environment Variables** add `VITE_MODE` = `static`.
+6. Click **Deploy**.
+
+In this mode the "why" bars use path-based contributions, a fast approximation of SHAP; the API version uses exact TreeSHAP. Predictions are identical in both.
 
 ## Deploy on Render
 

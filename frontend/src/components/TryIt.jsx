@@ -142,7 +142,7 @@ export default function TryIt() {
                   ))}
                 </div>
                 <div className="why">
-                  <h4>Why (SHAP)</h4>
+                  <h4>{res.explanation_method ? 'Why (approximate SHAP)' : 'Why (SHAP)'}</h4>
                   {res.explanation.slice(0, 4).map((x) => (
                     <div className="bar" key={x.factor}>
                       <div className="bar-t"><span>{x.factor}</span><b>{x.direction === 'for' ? `towards ${res.prediction.label.toLowerCase()}` : 'against it'}</b></div>
