@@ -1,5 +1,6 @@
 # Quasar Classifier
 
+Live demo : https://quasar-classifier-star-galaxy-quasa.vercel.app/
 **Is it a star, a galaxy, or a quasar?** A machine learning app that classifies objects from the Sloan Digital Sky Survey (SDSS DR17) using their brightness in five colour filters and their redshift, and explains every answer with SHAP.
 
 | Layer | Tech |
