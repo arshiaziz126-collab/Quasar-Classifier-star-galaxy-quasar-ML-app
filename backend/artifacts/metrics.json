@@ -1,0 +1,121 @@
+{
+  "data_source": "real",
+  "rows": 99999,
+  "rows_removed": 1,
+  "train_rows": 79999,
+  "test_rows": 20000,
+  "class_counts": [
+    {
+      "key": "GALAXY",
+      "label": "Galaxy",
+      "count": 59445
+    },
+    {
+      "key": "QSO",
+      "label": "Quasar",
+      "count": 18961
+    },
+    {
+      "key": "STAR",
+      "label": "Star",
+      "count": 21593
+    }
+  ],
+  "models": [
+    {
+      "name": "Logistic regression",
+      "detail": "A straight-line baseline",
+      "accuracy": 94.11,
+      "macro_f1": 0.9348
+    },
+    {
+      "name": "Random forest",
+      "detail": "200 decision trees voting",
+      "accuracy": 97.87,
+      "macro_f1": 0.9755
+    },
+    {
+      "name": "LightGBM",
+      "detail": "Gradient boosting, the model in use",
+      "accuracy": 97.82,
+      "macro_f1": 0.975,
+      "chosen": true
+    }
+  ],
+  "classes": [
+    {
+      "key": "GALAXY",
+      "label": "Galaxy",
+      "recall": 97.9,
+      "precision": 98.4
+    },
+    {
+      "key": "QSO",
+      "label": "Quasar",
+      "recall": 95.1,
+      "precision": 94.3
+    },
+    {
+      "key": "STAR",
+      "label": "Star",
+      "recall": 100.0,
+      "precision": 99.3
+    }
+  ],
+  "confusion_pct": [
+    [
+      97.9,
+      1.9,
+      0.2
+    ],
+    [
+      4.8,
+      95.1,
+      0.0
+    ],
+    [
+      0.0,
+      0.0,
+      100.0
+    ]
+  ],
+  "importance": [
+    {
+      "factor": "Redshift",
+      "share": 0.665
+    },
+    {
+      "factor": "Brightness",
+      "share": 0.099
+    },
+    {
+      "factor": "r \u2212 i colour",
+      "share": 0.088
+    },
+    {
+      "factor": "g \u2212 r colour",
+      "share": 0.071
+    },
+    {
+      "factor": "u \u2212 g colour",
+      "share": 0.051
+    },
+    {
+      "factor": "i \u2212 z colour",
+      "share": 0.026
+    }
+  ],
+  "boosting_rounds": 131,
+  "features": [
+    "u",
+    "g",
+    "r",
+    "i",
+    "z",
+    "redshift",
+    "u_g",
+    "g_r",
+    "r_i",
+    "i_z"
+  ]
+}
