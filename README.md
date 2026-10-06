@@ -12,6 +12,7 @@ Live demo : https://quasar-classifier-star-galaxy-quasa.vercel.app/
 | Deploy | One Docker container (API + site), ready for Render |
 
 ---
+<img width="1920" height="1080" alt="Screenshot 2026-10-06 112911" src="https://github.com/user-attachments/assets/3ac0560a-e969-498d-8e43-953e88502bf1" />
 
 ## Run it on Windows
 
@@ -43,6 +44,7 @@ npm run dev                          # http://localhost:5173
 ```
 
 ---
+<img width="1920" height="1080" alt="Screenshot 2026-10-06 112929" src="https://github.com/user-attachments/assets/c7adbd75-5bf8-4918-9f11-49aee7de9735" />
 
 ## Use the real dataset
 
@@ -52,7 +54,9 @@ npm run dev                          # http://localhost:5173
 4. Retrain: `python -m ml.train` (inside `backend`, with the virtual environment active).
 5. Restart the app. The "synthetic demo data" notices disappear and every number on the site is now real.
 
----
+--
+<img width="1920" height="1080" alt="Screenshot 2026-10-06 112950" src="https://github.com/user-attachments/assets/5052555d-6f69-4c1d-b928-587dd1814009" />
+
 
 ## Deploy on Vercel (recommended: never sleeps)
 
@@ -71,6 +75,8 @@ The whole model also runs inside the browser, so the site can be hosted as stati
 6. Click **Deploy**.
 
 In this mode the "why" bars use path-based contributions, a fast approximation of SHAP; the API version uses exact TreeSHAP. Predictions are identical in both.
+
+<img width="1920" height="1080" alt="Screenshot 2026-10-06 113008" src="https://github.com/user-attachments/assets/2dd14e0b-5905-4b52-b639-d315314eec46" />
 
 ## Deploy on Render
 
@@ -104,6 +110,8 @@ To stop the free service from sleeping, add a free monitor at https://uptimerobo
 * **Models:** logistic regression (baseline), random forest, and LightGBM with early stopping. LightGBM is the model the app uses: it is close to the best accuracy, fast, and gives exact SHAP values.
 * **Evaluation:** accuracy, macro F1, per-class precision and recall, and a confusion matrix on the 20% test set.
 * **Explanations:** LightGBM's built-in TreeSHAP shows which clue pushed each prediction, with the five magnitudes grouped as "Brightness".
+<img width="1920" height="1080" alt="Screenshot 2026-10-06 113022" src="https://github.com/user-attachments/assets/b0958108-0ede-4f72-a1f6-e1ba3bc62c30" />
+
 
 ### Limitations
 
